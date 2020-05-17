@@ -41,9 +41,9 @@
             <tr>
                 <td><?= $i ?></td>
                 <td><img src = "asset/img/<?= $appl['Foto'] ?>"></td>
-                <td><?= $appl["Merek Pakaian"] ?></td>
-                <td><?= $appl["Model Pakaian"] ?></td>
-                <td><?= $appl["Warna Pakaian"] ?></td>
+                <td><?= $appl["Merek"] ?></td>
+                <td><?= $appl["Model"] ?></td>
+                <td><?= $appl["Warna"] ?></td>
                 <td><?= $appl["Harga"] ?></td>
             </tr>
             <?php $i++ ?>

@@ -18,7 +18,7 @@
         <?php foreach ($apparel as $appl) : ?>
             <p class="nama">
                 <a href="php/detail.php?id=<?= $appl['No'] ; ?>">
-                    <?= $appl["Merek Pakaian"] ?> 
+                    <?= $appl["Merek"] ?> 
                 </a>
             </p>
         <?php endforeach; ?>

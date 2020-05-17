@@ -40,9 +40,9 @@
             <tr>
                 <td><?= $i ?></td>
                 <td><img src = "assets/img/<?= $row['Foto'] ?>"></td>
-                <td><?= $row["Merek Pakaian"] ?></td>
-                <td><?= $row["Model Pakaian"] ?></td>
-                <td><?= $row["Warna Pakaian"] ?></td>
+                <td><?= $row["Merek"] ?></td>
+                <td><?= $row["Model"] ?></td>
+                <td><?= $row["Warna"] ?></td>
                 <td><?= $row["Harga"] ?></td>
             </tr>
             <?php $i++ ?>

@@ -33,9 +33,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link active " href="kuliah">Kuliah <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="praktikum/p5_PW_193040145">p5_PW_193040145</a>
-      <a class="nav-item nav-link" href="praktikum/p6_PW_193040145">p6_PW_193040145</a>
-      <a class="nav-item nav-link" href="praktikum/p7_PW_193040145">p7_PW_193040145</a>
+      <a class="nav-item nav-link" href="praktikum">Praktikum</a>
       <a class="nav-item nav-link" href="tubes/index1.php">tubes</a>
     </div>
   </div>

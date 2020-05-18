@@ -14,27 +14,25 @@
 
 
     <!-- My CSS -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="tubes/style.css">
 
 
     <title>Ferri SM</title>
   </head>
   <body>
 
-
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
-  <a class="navbar-brand" href="#">Ferri 193040145</a>
+  <a class="btn btn-primary tombol navbar-brand" href="#">Ferri 193040145</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link active " href="kuliah">Kuliah <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="praktikum">Praktikum</a>
-      <a class="nav-item nav-link" href="tubes/index1.php">tubes</a>
+      <a class="nav-item nav-link active" href="praktikum">Praktikum</a>
+      <a class="nav-item nav-link active" href="tubes/index1.php">tubes</a>
     </div>
   </div>
   </div>
@@ -78,9 +76,6 @@
 <!-- akhir info panel -->
 
 
-
-
-
 <!-- Testimonial -->
 <section class="testimonial">
   <div class="row justify-content-center">
@@ -89,9 +84,6 @@
     </div>
   </div>
 
- 
-
-
 <!-- footer -->
 <div class="row footer">
   <div class="col text-center">
@@ -99,22 +91,6 @@
   </div>
 </div>
 <!-- akhir footer -->
-
-
-</div>
-<!-- akhir Container -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Optional JavaScript -->

@@ -1,4 +1,22 @@
+<?php
+require 'tubes/php/functions.php';
 
+
+if(isset($_GET['cari'])) {
+  $keyword =$_GET['keyword'];
+  $apparel = query ("SELECT * FROM apparel WHERE 
+    no LIKE '%$keyword%' OR 
+    nama_Pakaian LIKE '%$keyword%' OR 
+    Bahan_Pakaian LIKE '%$keyword%' OR 
+    merk LIKE '%$keyword%' OR 
+    harga LIKE '%$keyword%' ");
+}else {
+
+//melakukan query
+$apparel = query("SELECT * FROM apparel");
+}
+
+?>
 
 
 <!--  <!DOCTYPE html>
@@ -9,7 +27,6 @@
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-
       <!-- My CSS -->
       <link rel="stylesheet" href="css/style.css">
 
@@ -17,10 +34,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>Tubes</title>
-
-
     </head>
-
     <body id="home" class="scrollspy">
 
 <!-- navbar -->
@@ -34,16 +48,8 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="#menu">Menu</a></li>
           <li><a href="#Product">Product</a></li>
-          <li><a href="#cardinal">cardinal</a></li>
-          <li><a href="#Neil">Neil Allyn</a></li>
-          <li><a href="#Zara">Zara clothing</a></li>
-          <li><a href="#Burberry">Burberry</a></li>
-          <li><a href="#Armani">Armani</a></li>
-          <li><a href="#Gucci">Gucci</a></li>
-          <li><a href="#Dior">Dior</a></li>
-          <li><a href="#Louis">Louis Vuitton</a></li>
-          <li><a href="#Levis">Levis</a></li>
-          <li><a href="#UniqLo">UniqLo</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="../index.php" class="btn btn-primary tombol">Kembali ke index</a></li>
         </ul>
       </div>
     </div>
@@ -52,24 +58,15 @@
 
 <!-- sidenav -->
  <ul class="sidenav" id="mobile-nav">
-  <li><a a href="tubes/php/login.php" class="brand-logo"><i class="material-icons medium">add_box</i></a></a></li><br>
+      <li><a a href="tubes/php/login.php" class="brand-logo"><i class="material-icons medium">add_box</i></a></a></li><br>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#Product">Product</a></li>
-          <li><a href="#cardinal">cardinal</a></li>
-          <li><a href="#Neil">Neil Allyn</a></li>
-          <li><a href="#Zara">Zara clothing</a></li>
-          <li><a href="#Burberry">Burberry</a></li>
-          <li><a href="#Armani">Armani</a></li>
-          <li><a href="#Gucci">Gucci</a></li>
-          <li><a href="#Dior">Dior</a></li>
-          <li><a href="#Louis">Louis Vuitton</a></li>
-          <li><a href="#Levis">Levis</a></li>
-          <li><a href="#UniqLo">UniqLo</a></li>
+      <li><a href="../index.php">Kembali ke index</a></li>
  </ul>
 
 
 <!-- slider -->
- <menu id="menu" class="menu grey scrollspy">
+ <menu id="menu" class="menu  scrollspy">
   <div class="slider">
     <ul class="slides">
       <li>
@@ -126,126 +123,128 @@
 </menu>
 
 
-    <section id="Product" class="Product grey scrollspy">
+  <Prodyct id="Product" class="Product scrollspy">            
+ <section id="Product" class="Product scrollspy">
       <div class="container">
         <div class="row">
           <h3 class="light center grey-text text-darken-3">Product</h3>
         </div>
+
+      
+<?php foreach ($apparel as $appl) : ?>
+<div class="row">
+   <div class="col m3 s12" >
+    <div class="item">
+      <div class="card" style="height: 500px">
+        <div class="card-image">
+          <img src="tubes/asset/img/<?= $appl['Foto']; ?>" class="Foto" style="height: 250px">
+        </div>
+        <div class="card-content">
+          <span class="center card-title black-text text-darken-3"><?= $appl['Merek'] ?></span> <br><br><br>
+        </div>
+        <div class="card-action center" style="height: 10px">
+          <a href="tubes/php/detail.php?id=<?= $appl['id']; ?>" >Lihat Detail</a>
+        </div>
       </div>
-      <cardinal id="cardinal" class="car dinal grey scrollspy">
-          <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>    
-              <h5><a a href="tubes/index.php">Cardinal</a></h5>
-            </cardinal>
-              <img class="center" src="tubes/asset/img/1.jpg" class="esponsive-img materialboxed">
+    </div>
+  </div>
+<?php endforeach; ?>
+</section>
+</Prodyct>
+
+
+<!-- contact us -->
+    <section id="contact" class="contact lighten-3 scrollspy">
+      <div class="container">
+        <h3 class="light grey-text text-darken-3 center">Contact Us</h3><br>
+        <div class="row">
+          <div class="col m5 s12">
+            <div class="card-panel blue darken-2 center white-text">
+              <i class="material-icons">email</i>
+              <h5>Contact</h5>
+              <p>Silahkan masukan pesan untuk memberi saran atau bantuan.</p>
+            </div>
+            <ul class="collection with-header">
+              <li class="collection-header"><h4>Our Office</h4></li>
+              <li class="collection-item">Web Programing UNPAS</li>
+              <li class="collection-item">Jl. Setiabudhi No. 193, Bandung</li>
+              <li class="collection-item">West Java, Indonesia</li>
+            </ul>
+          </div>
+
+          <div class="col m7 s12">
+            <form>
+              <div class="card-panel">
+                <h5>Please fill out this form</h5>
+                <div class="input-field">
+                  <input type="text" name="name" id="name" required class="validate">
+                  <label for="name">Name</label>
+                </div>
+                  <div class="input-field">
+                  <input type="email" name="email" id="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+                  <div class="input-field">
+                  <input type="text" name="phone" id="phone">
+                  <label for="phone">Phone Number</label>
+                </div>
+                  <div class="input-field">
+                  <textarea name="message" id="message" class="materialize-textarea"></textarea>
+                  <label for="message">Message</label>
+                </div>
+                <button type="submit" class="btn blue darken-2">Send</button>
               </div>
+            </form>
           </div>
         </div>
-        <cardinal id="Neil" class="Neil grey scrollspy">
-           <div class="col m4 s12 black">
-            <div class="card-panel center  grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Neil Allyn</a></h5>
-              <img class="center" src="tubes/asset/img/2.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="Zara" class="Zara grey scrollspy">
-          <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Zara clothing</a></h5>
-               <img class="center" src="tubes/asset/img/3.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="Burberry" class="Burberry grey scrollspy">
-          <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Burberry</a></h5>
-               <img class="center" src="tubes/asset/img/4.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="Armani" class="Armani grey scrollspy">
-          <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Armani</a></h5>
-               <img class="center" src="tubes/asset/img/5.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="Gucci" class="Gucci grey scrollspy">
-          <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Gucci</a></h5>
-               <img class="center" src="tubes/asset/img/6.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="Dior" class="Dior grey scrollspy">
-          <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Dior</a></h5>
-               <img class="center" src="tubes/asset/img/7.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="Louis" class="Louis grey scrollspy">
-          <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Louis Vuitton</a></h5>
-               <img class="center" src="tubes/asset/img/9.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="Levis" class="Levis grey scrollspy">
-           <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>
-              <h5><a a href="tubes/index.php">Levis</a></h5>
-               <img class="center" src="tubes/asset/img/8.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
-        </div>
-        <cardinal id="UniqLo" class="UniqLo grey scrollspy">
-        <div class="col m4 s12 black">
-            <div class="card-panel center grey lighten-3">
-              <i class="material-icons medium">visibility</i>             
-              <h5><a a href="tubes/index.php">UniqLo</a></h5>
-               <img class="center" src="tubes/asset/img/10.jpg" class="esponsive-img materialboxed">
-              </div>
-          </div>
       </div>
-    </section>
-  
-
-
-<!-- footer -->
-
-<footer class="grey white-text center">
-  <p class="flow-text">Pemograman Web. Ferri SM</p>
-</footer>
+    </section><br><br>
 
 
 
+<footer class="footer grey">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="Black-text"><b><u>Ferri Syamsul Ma'arif</u></b></h5><br>
+                <p class="grey-text text-lighten-4">Universitas Pasundan</p>
+                <p class="grey-text text-lighten-4">Fakultas Teknik Informatika</p><br>
+                <p class="grey-text text-lighten-4"><b><u>Location</u></b></p>
+                <p class="grey-text text-lighten-4">Dsn banana garden, Kec Ciasem, Kab Subang, Prov Jawa Barat, Indonesia</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text"><b><u>Sosmed</u></b></h5>
+                 <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">youtube</a></li>
+                </ul>
+                <h5 class="white-text"><b><u>Contact Me</u></b></h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">No Hp   : 0123456878</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Email 1 : ferrisyamsuimaarif@gmail.com</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Email 1 : 193040145.ferry@mail.unpas.ac.id</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            <p class="center"><u>© 2020 Copyright Ferri SM</u></p>            
+            </div>
+          </div>
+        </footer>
 
 
-
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      <script>
-        const sideNav = document.querySelectorAll('.sidenav');
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    
+ 
+  const sideNav = document.querySelectorAll('.sidenav');
         M.Sidenav.init(sideNav);
-
-
-        const slider = document.querySelectorAll('.slider');
+  const slider = document.querySelectorAll('.slider');
         M.Slider.init(slider,
           {
             indicators: false,
@@ -253,19 +252,11 @@
             transition: 600,
             interval: 3000
           });
-
-        const parallax = document.querySelectorAll('.parallax');
-        M.Parallax.init(parallax);
-
-        const materialboxed = document.querySelectorAll('.materialboxed');
-        M.Materialbox.init(materialboxed);
-
         const scrollspy = document.querySelectorAll('.scrollspy');
         M.ScrollSpy.init(scrollspy,
           {
             scrollOffset: 50
           });
-
       </script>
     </body>
   </html> 

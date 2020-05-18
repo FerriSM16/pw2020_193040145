@@ -67,7 +67,7 @@
 				<p><?= $apparel["Harga"] ?></p>
 			</div>
 
-			<button class="tombol-kembali"><a href="../index.php">Kembali</a></button>
+			<button class="tombol-kembali"><a href="../../index1.php">Kembali</a></button>
 		</div></p>
         </div>
       </div>
